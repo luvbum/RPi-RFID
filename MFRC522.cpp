@@ -1453,7 +1453,7 @@ void MFRC522::PICC_DumpMifareClassicSectorToSerial(Uid *uid,			///< Pointer to U
 		
     if (group != 3 && (g[group] == 1 || g[group] == 6)) { // Not a sector trailer, a value block
       long value = (long(buffer[3])<<24) | (long(buffer[2])<<16) | (long(buffer[1])<<8) | long(buffer[0]);
-      printf(" Value="); printf("0x%02X", value);
+      printf(" Value="); printf("0x%02lX", value);
       printf(" Adr="); printf("0x%02X", buffer[12]);
     }
     printf("\n");
@@ -1497,7 +1497,7 @@ void MFRC522::PICC_DumpMifareUltralightToSerial() {
 	  printf(" 0");
 	else
 	  printf(" ");
-	printf("%0x%02X",buffer[i]);
+	printf("0x%02X",buffer[i]);
       }
       printf("\n");
     }
